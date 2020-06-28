@@ -1,0 +1,41 @@
+<mat-toolbar class="header">
+  <div class="header-logo">
+    <img src="https://image.flaticon.com/icons/png/512/2957/2957939.png" width="30" class="logo">
+    <h6 class="website-title">CLINICAL MANAGER</h6>
+  </div>
+
+  <div class="menu-navbar" style="padding-left: 10px; font-size: 15px;">
+  </div>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened class="first-container">
+    <li class="side-menu menu">
+      <img src="https://i.ibb.co/L9KNVG7/menu-aberto-1.png">
+      <span>Menu Principal</span>
+    </li>
+    <a href="/organizations">
+      <li class="side-menu">
+        <img src="https://i.ibb.co/pjYBDGs/bem-estar.png">
+        <span>Organizações</span>
+      </li>
+    </a>
+    <a href="/patients">
+      <li class="side-menu">
+        <img src="https://i.ibb.co/0rg2PJC/coronavirus.png">
+        <span>Pacientes</span>
+      </li>
+    </a>
+    <a href="/practitioners">
+      <li class="side-menu">
+        <img src="https://i.ibb.co/K2K1DQz/hospital-3.png">
+        <span>Médicos</span>
+      </li>
+    </a>
+  </mat-drawer>
+  <mat-drawer-content class="second-container">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

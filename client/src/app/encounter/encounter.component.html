@@ -1,0 +1,59 @@
+<div class="main-container">
+
+  <div class="row sub-title">
+    <h5>Consultas</h5>
+  </div>
+
+  <div class="search_line">
+    <mat-form-field>
+      <mat-label>Pacientes</mat-label>
+      <mat-select [formControl]="patients" [(value)]="selected_patient">
+        <mat-option *ngFor="let entity of patientsName" [value]="entity.id">{{entity.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button (click)="routeToEncountersComponent(selected_patient)">
+      <img src="https://image.flaticon.com/icons/svg/1086/1086933.svg" width="15px>" alt="Ver mais informações">
+    </button>
+  </div>
+
+
+
+  <div *ngIf="active_flag">
+    <table mat-table class="patient-table"  [dataSource]="encounterData | paginate: config" >
+
+      <ng-container matColumnDef="patient">
+        <th mat-header-cell *matHeaderCellDef> Paciente </th>
+        <td mat-cell *matCellDef="let encounter"> {{encounter.patient}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="practitioner">
+        <th mat-header-cell *matHeaderCellDef> Médico </th>
+        <td mat-cell *matCellDef="let encounter"> {{encounter.practitioner}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Tipo de Consulta </th>
+        <td mat-cell *matCellDef="let encounter"> {{encounter.type}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="hour">
+        <th mat-header-cell *matHeaderCellDef> Horário </th>
+        <td mat-cell *matCellDef="let encounter"> {{encounter.start + encounter.end}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let patient; columns: columnsToDisplay"></tr>
+    </table>
+
+    <!--
+        <p matLine style="display: flex; justify-content: flex-end;">
+          <button mat-button color="primary" (click)="openViewDialog(company)">Mais Informações</button>
+        </p>
+    -->
+    <div class="pagination-patients">
+      <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    </div>
+  </div>
+
+</div>

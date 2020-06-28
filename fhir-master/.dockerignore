@@ -1,0 +1,7 @@
+.git
+vendor
+fhir-server/fhir-server
+fhir-server/fhir-server.exe
+fhir/fsharp-fhir-tools
+cov.out
+cov.html

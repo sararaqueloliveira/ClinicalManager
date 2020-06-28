@@ -1,0 +1,62 @@
+﻿// Learn more about F# at http://fsharp.org
+
+open System
+open FSharp.Data
+open System.IO
+
+
+type Elements = JsonProvider<"""C:\Users\eug\Downloads\FHIR\STU3\dataelements.json""">
+
+[<EntryPoint>]
+let main argv =
+    printfn "// ---------------------------"
+    printfn "// FHIR PathsByType Utility"
+    printfn "// ---------------------------"
+
+    let file = Elements.GetSample()
+    let resources = file.Entry |> Array.map (fun e -> e.Resource)
+    let elements = resources |> Array.collect (fun r -> r.Element)
+    let resourcesById = Map.ofArray (resources |> Array.map (fun r -> r.Id, r))
+    let elementsById = Map.ofArray (elements |> Array.map (fun e -> e.Id, e))
+
+
+    let pathTypes = seq {
+        for element in elements do
+
+            match element.ContentReference with
+            | Some ref ->
+                if not <| ref.StartsWith("#") then failwithf "ContentReference invalid for %s" element.Id
+                yield element.Id, ref.Substring(1)
+
+            | None ->
+                let typeCodes =
+                    element.Type
+                    |> Array.collect (fun t -> Option.toArray t.Code)
+                    |> Array.distinct
+
+                match typeCodes with
+                | [| |] ->
+                    if element.Id.Contains(".") then
+                        yield element.Id, "()"
+                | [| code |] ->
+                    yield element.Id, code
+                | multiple ->
+                    if element.Id.EndsWith("[x]") = false then
+                        failwithf "multiple types but no [x]: %s %A" element.Id multiple
+            
+                    let prefix = element.Id.Substring(0, element.Id.Length - 3)
+                    for code in multiple do
+                        let typeTitleCase = (string code.[0]).ToUpper() + code.Substring(1)
+                        yield prefix + typeTitleCase, code
+    }
+    
+    let sorted = pathTypes |> Seq.sortBy fst
+
+    printfn """var fhirTypes = map[string]string {"""
+    for path, t in sorted do
+        printfn """    "%s": "%s",""" path t
+    printfn "}"
+
+
+
+    0 // return an integer exit code

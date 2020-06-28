@@ -1,0 +1,71 @@
+<div class="main-container">
+
+  <div class="row sub-title">
+    <h5>Pacientes</h5>
+  </div>
+
+<table mat-table class="patient-table" [dataSource]="patientData | paginate: config" >
+
+  <ng-container matColumnDef="gender_flag">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let patient">
+      <div class="gender-icon" *ngIf="patient.gender_flag==true; else male">
+          <img src="https://image.flaticon.com/icons/png/512/32/32353.png" width="18">
+      </div>
+
+      <ng-template class="gender-icon" #male>
+        <img src="https://image.flaticon.com/icons/png/512/14/14883.png" width="15">
+      </ng-template>
+    </td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.name}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Identificação</th>
+    <td mat-cell *matCellDef="let patient"> {{patient.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="birthDate">
+    <th mat-header-cell *matHeaderCellDef> Data de Nascimento </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.birthDate}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="view">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let patient">
+      <button mat-button (click)="openDialog(patient)">
+        <img src="https://image.flaticon.com/icons/svg/1086/1086933.svg" width="15px>" alt="Ver mais informações">
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="encounters">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let patient">
+      <button mat-button (click)="routeToEncountersComponent(patient.id)">
+        Ver Consultas
+      </button>
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let patient; columns: columnsToDisplay"></tr>
+</table>
+
+  <!--
+      <p matLine style="display: flex; justify-content: flex-end;">
+        <button mat-button color="primary" (click)="openViewDialog(company)">Mais Informações</button>
+      </p>
+  -->
+  <div class="pagination-patients">
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+
+</div>

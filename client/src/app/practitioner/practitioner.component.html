@@ -1,0 +1,66 @@
+<div class="main-container">
+
+  <div class="row sub-title">
+    <h5>Médicos</h5>
+  </div>
+
+<table mat-table class="patient-table" [dataSource]="practitionerData | paginate: config" >
+
+  <ng-container matColumnDef="gender_flag">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let practitioner">
+      <div class="gender-icon" *ngIf="practitioner.gender_flag==true; else male">
+          <img src="https://image.flaticon.com/icons/png/512/32/32353.png" width="18">
+      </div>
+
+      <ng-template class="gender-icon" #male>
+        <img src="https://image.flaticon.com/icons/png/512/14/14883.png" width="15">
+      </ng-template>
+    </td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let practitioner"> Dr. {{practitioner.name}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Identificação</th>
+    <td mat-cell *matCellDef="let practitioner"> {{practitioner.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="birthDate">
+    <th mat-header-cell *matHeaderCellDef>Estado de Atividade</th>
+
+    <td mat-cell *matCellDef="let practitioner">
+      <div *ngIf="practitioner.active==true; else inactive">
+        Ativo
+      </div>
+
+      <ng-template #inactive>
+        Inativo
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="encounters">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let practitioner">
+      <button mat-button (click)="routeToEncountersComponent(practitioner.id)">
+        Ver Consultas
+      </button>
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let practitioner; columns: columnsToDisplay"></tr>
+</table>
+
+  <div class="pagination-patients">
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+
+</div>

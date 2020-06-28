@@ -1,0 +1,59 @@
+.tool-bar {
+  margin: auto;
+}
+
+table {
+  margin: auto;
+  width: 90%;
+}
+
+.add-button {
+  float: right;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container>* {
+  width: 100%;
+}
+
+.photo {
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.photo img {
+  width: 85px;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 35px;
+  font-family: 'Open Sans', sans-serif;
+  justify-content: space-between;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.info {
+  padding-right: 30px;
+}
+
+.info-title {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.info-text {
+  font-size: 14px;
+}
+
+.dialog-container {
+  padding: 30px;
+}

@@ -1,0 +1,28 @@
+{
+    "options": {
+      "machineType": "N1_HIGHCPU_8"
+    },
+    "steps": [
+      {
+        "name": "gcr.io/cloud-builders/docker",
+        "id": "docker-build-standalone",
+        "args": [
+          "build", "-f", "Dockerfile", "-t", "gcr.io/$PROJECT_ID/fhir-server:$COMMIT_SHA", "."
+        ]
+      },
+      {
+        "name": "gcr.io/cloud-builders/docker",
+        "id": "docker-build-with-mongo",
+        "waitFor": [ "-" ],
+        "args": [
+          "build", "-f", "Dockerfile-with-mongo", "-t", "gcr.io/$PROJECT_ID/fhir-server-with-mongo:$COMMIT_SHA", "."
+        ]
+      }
+    ],
+    "images": [
+      "gcr.io/$PROJECT_ID/fhir-server-with-mongo",
+      "gcr.io/$PROJECT_ID/fhir-server"
+    ],
+    "timeout": "1200s"
+  }
+  

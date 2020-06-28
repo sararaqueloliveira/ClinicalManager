@@ -1,0 +1,46 @@
+<div class="dialog-container">
+  <div class="photo">
+    <img src="https://image.flaticon.com/icons/svg/727/727363.svg">
+  </div>
+
+  <div>
+    <div class="row">
+      <div class="info">
+        <span class="info-title">Nome<br></span>
+        <span class="info-text">{{ patient.name }}</span>
+      </div>
+
+      <div class="info">
+        <span class="info-title">Data de Nascimento<br></span>
+        <span class="info-text">{{ patient.birthDate }}</span>
+      </div>
+
+      <div class="info">
+        <span class="info-title">Telefone<br></span>
+        <span class="info-text">{{ patient.phone }}</span>
+      </div>
+
+      <div class="info">
+        <span class="info-title">Estado Civil<br></span>
+        <span class="info-text">{{ patient.maritalStatus }}</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="info">
+        <span class="info-title">Morada<br/></span>
+        <span class="info-text">{{ patient.city + ", " + patient.state + ", " + patient.postalCode }}</span>
+      </div>
+
+      <div class="info">
+        <span class="info-title">Segurança Social<br></span>
+        <span class="info-text">{{ patient.socialSecurity }}</span>
+      </div>
+
+      <div class="info">
+        <span class="info-title">Nacionalidade<br></span>
+        <span class="info-text">{{ patient.communication }}</span>
+      </div>
+    </div>
+  </div>
+</div>

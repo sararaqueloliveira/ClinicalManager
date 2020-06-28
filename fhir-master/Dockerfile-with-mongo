@@ -1,0 +1,25 @@
+FROM golang:1.12.6 as builder
+
+# Download dependencies first for docker caching
+WORKDIR /gofhir-src
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy source
+COPY . .
+
+# Build
+WORKDIR /gofhir-src/fhir-server
+ARG GIT_COMMIT=dev
+RUN go build -ldflags "-X main.gitCommit=$GIT_COMMIT"
+
+
+
+# Copy into official image with MongoDB
+FROM mongo:4.0.10-xenial
+COPY --from=builder /gofhir-src/fhir-server/fhir-server /
+COPY --from=builder /gofhir-src/fhir-server/config/ /config
+COPY --from=builder /gofhir-src/conformance/ /conformance
+
+ENV PORT 3001
+CMD /fhir-server --port $PORT --startMongod --mongodbURI mongodb://localhost:27017/?replicaSet=rs0 --enableXML --disableSearchTotals

@@ -1,0 +1,236 @@
+.tool-bar {
+  margin: auto;
+}
+
+table {
+  margin: auto;
+  width: 90%;
+}
+
+.add-button {
+  float: right;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container>* {
+  width: 100%;
+}
+
+.main-container {
+  margin: 35px auto;
+  width: 90%;
+}
+
+.form-row.buttons {
+  justify-content: flex-end;
+  margin-bottom: 50px;
+}
+
+label.label-form {
+  font-size: smaller;
+  font-weight: bold;
+}
+
+table.mat-elevation-z8 {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+mat-toolbar.sub-title-toolbar {
+  background-color: white;
+  border: 6px #673ab7 solid;
+  border-radius: 0%;
+  justify-content: center;
+  color: #673ab7;
+}
+
+hr.hr-subtitle {
+  border-top: 1px solid black;
+  margin-top: 7px;
+}
+
+th.entry-column {
+  background-color: #673ab7;
+}
+
+th.mat-header-cell {
+  color: #3d3d3d;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.row.sub-title {
+  margin: 0;
+  h5 {
+    font-size: 36px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(61, 61, 61);
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    margin-left: 37px;
+  }
+}
+
+.material-icons.sub-title-icon {
+  padding-right: 10px;
+}
+
+
+//----
+
+.carousel-inner {
+  max-height: 347px;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+mat-list mat-list-item {
+  height: auto;
+}
+
+.hr-subtitle.main-page {
+  margin-bottom: 20px;
+}
+
+mat-list-item img.avatar-companie {
+  width: 115px;
+  height: 108px;
+  border-radius: 0;
+}
+
+mat-list.companie-list.mat-list-base {
+  height: auto;
+
+}
+
+mat-list-item.companie-list.mat-list-item-with-avatar {
+  height: auto;
+  margin-bottom: 20px;
+}
+
+mat-list-item h4.companie-title {
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+a.more-informations {
+  color: black;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.carousel-item .carousel-caption.d-none.d-md-block {
+  position: sticky !important;
+}
+
+.form-search {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+agm-map {
+  height: 300px;
+  width: 300px;
+}
+
+.main-container-search {
+  width: 70%;
+  margin: 20px auto 0 auto;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 756px;
+  background-size: cover;
+  margin-top: 1px;
+
+  .carousel-shadow {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black, 0.2);
+  }
+}
+
+mat-dialog-container.mat-dialog-container {
+  padding: 0;
+}
+
+.search-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.material-icons.search-button-icon {
+  padding-left: 5px;
+}
+
+td.mat-footer-cell.cdk-column-img.mat-column-img.ng-star-inserted {
+  background: url(https://cysneiros.com.br/wp-content/uploads/2018/06/consultoria-empresarial-recife.jpg);
+  height: 190px;
+  background-size: cover;
+}
+
+tr.mat-header-row {
+  height: 34px;
+  background-color: rgb(245, 245, 245);
+}
+
+table.patient-table {
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
+}
+
+td.mat-cell {
+  border-bottom: 2px solid rgba(224, 224, 224, 1);
+}
+
+.mat-cell {
+  font-size: 13px;
+}
+
+table {
+  margin-left: 37px;
+  margin-right: 37px;
+}
+
+.pagination-patients {
+  text-align: center;
+  margin-top: 25px;
+}
+
+table.mat-table {
+  text-align: center;
+}
+table th.mat-header-cell {
+  text-align: center;
+}
