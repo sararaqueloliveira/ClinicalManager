@@ -27,23 +27,18 @@ require (
 	github.com/juju/errors v0.0.0-20170703010042-c7d06af17c68
 	github.com/juju/loggo v0.0.0-20190526231331-6e530bcce5d8 // indirect
 	github.com/juju/testing v0.0.0-20190613124551-e81189438503 // indirect
-	github.com/kr/pretty v0.1.0 // indirect
 	github.com/mattn/go-isatty v0.0.8 // indirect
 	github.com/mitre/heart v0.0.0-20160825192324-0c46b433a490
 	github.com/opencensus-integrations/gomongowrapper v0.0.0-00010101000000-000000000000
 	github.com/pebbe/util v0.0.0-20140716220158-e0e04dfe647c
-	github.com/pkg/errors v0.8.1
-	github.com/stretchr/objx v0.1.1 // indirect
-	github.com/stretchr/testify v1.3.0
-	github.com/tidwall/pretty v1.0.0 // indirect
+	github.com/pkg/errors v0.9.1
+	github.com/stretchr/testify v1.6.1
 	github.com/ugorji/go v1.1.5-pre // indirect
-	go.mongodb.org/mongo-driver v1.1.4
+	go.mongodb.org/mongo-driver v1.5.1
 	go.opencensus.io v0.22.0
-	golang.org/x/crypto v0.0.0-20190621222207-cc06ce4a13d4 // indirect
 	golang.org/x/lint v0.0.0-20190409202823-959b441ac422 // indirect
-	golang.org/x/net v0.0.0-20190620200207-3b0461eec859 // indirect
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
-	golang.org/x/sys v0.0.0-20200523222454-059865788121
+	golang.org/x/sys v0.0.0-20200523222454-059865788121 // indirect
 	golang.org/x/tools v0.0.0-20190628021728-85b1a4bcd4e6 // indirect
 	google.golang.org/appengine v1.6.1 // indirect
 	google.golang.org/genproto v0.0.0-20190627203621-eb59cef1c072 // indirect
@@ -52,7 +47,6 @@ require (
 	gopkg.in/mgo.v2 v2.0.0-20180705113604-9856a29383ce
 	gopkg.in/square/go-jose.v1 v1.1.1 // indirect
 	gopkg.in/tomb.v2 v2.0.0-20161208151619-d5d1b5820637 // indirect
-	gopkg.in/yaml.v2 v2.2.2 // indirect
 )
 
 replace github.com/opencensus-integrations/gomongowrapper => github.com/eug48/gomongowrapper v0.0.3
